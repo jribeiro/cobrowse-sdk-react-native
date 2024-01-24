@@ -1,8 +1,8 @@
 package com.example;
 
 import android.app.Activity;
-import android.app.Application;
 import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,8 +12,8 @@ import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
-import com.facebook.react.defaults.DefaultReactNativeHost;
-import com.facebook.soloader.SoLoader;
+import com.reactnativenavigation.NavigationApplication;
+import com.reactnativenavigation.react.NavigationReactNativeHost;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +21,9 @@ import java.util.List;
 import io.cobrowse.reactnative.CobrowseIO;
 import io.cobrowse.reactnative.CobrowseIOModule;
 
-public class MainApplication extends Application implements ReactApplication, CobrowseIO.RedactionDelegate {
+public class MainApplication extends NavigationApplication implements ReactApplication, CobrowseIO.RedactionDelegate {
 
-  private final ReactNativeHost mReactNativeHost = new DefaultReactNativeHost(this) {
+  private final ReactNativeHost mReactNativeHost = new NavigationReactNativeHost(this) {
     @Override
     public boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
@@ -62,7 +62,7 @@ public class MainApplication extends Application implements ReactApplication, Co
   @Override
   public void onCreate() {
     super.onCreate();
-    SoLoader.init(this, /* native exopackage */ false);
+
 
     if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
       // If you opted-in for the New Architecture, we load the native entry point for this app.
@@ -83,9 +83,33 @@ public class MainApplication extends Application implements ReactApplication, Co
     return redacted;
   }
 
+  public static View findViewByTag(View parentView, String tag) {
+    if (parentView == null) {
+      return null;
+    }
+
+    if (tag.equals(parentView.getTag())) {
+      return parentView;
+    }
+
+    if (parentView instanceof ViewGroup) {
+      ViewGroup viewGroup = (ViewGroup) parentView;
+      for (int i = 0; i < viewGroup.getChildCount(); i++) {
+        View foundView = findViewByTag(viewGroup.getChildAt(i), tag);
+        if (foundView != null) {
+          return foundView;
+        }
+      }
+    }
+
+    return null;
+  }
+
   @Nullable
   @Override
   public List<View> unredactedViews(@NonNull Activity activity) {
-    return null;
+    return new ArrayList<View>() {{
+      add(findViewByTag(activity.getWindow().getDecorView(), "BOTTOM_TABS_BAR"));
+    }};
   }
 }
