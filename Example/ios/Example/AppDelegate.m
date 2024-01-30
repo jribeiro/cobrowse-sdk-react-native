@@ -14,6 +14,7 @@
 
 #import <ReactNativeNavigation/ReactNativeNavigation.h>
 #import <React/RCTBundleURLProvider.h>
+#import "RNNBottomTabsController.h"
 
 static void InitializeFlipper(UIApplication *application) {
   FlipperClient *client = [FlipperClient sharedClient];
@@ -35,24 +36,12 @@ static void InitializeFlipper(UIApplication *application) {
 #endif
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
-//  RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge moduleName:@"Example" initialProperties:nil];
   
   [ReactNativeNavigation bootstrapWithBridge:bridge];
   
-//  if (@available(iOS 13.0, *)) {
-//      rootView.backgroundColor = [UIColor systemBackgroundColor];
-//  } else {
-//      rootView.backgroundColor = [UIColor whiteColor];
-//  }
+  UIViewController *rvc = UIApplication.sharedApplication.delegate.window.rootViewController;
 
   RCTCobrowseIO.delegate = self;
-
-//  self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//  UIViewController *rootViewController = [UIViewController new];
-//  rootViewController.view = rootView;
-//  self.window.rootViewController = rootViewController;
-//  [self.window makeKeyAndVisible];
-  
   
   return YES;
 }
@@ -74,24 +63,18 @@ static void InitializeFlipper(UIApplication *application) {
   return @[UIApplication.sharedApplication.delegate.window];
 }
 
-- (UIView *)findViewWithAccessibilityIdentifier:(NSString *)accessibilityIdentifier inView:(UIView *)view {
-    if ([view.accessibilityIdentifier isEqualToString:accessibilityIdentifier]) {
-        return view;
-    }
-    for (UIView *subview in view.subviews) {
-        UIView *foundView = [self findViewWithAccessibilityIdentifier:accessibilityIdentifier inView:subview];
-        if (foundView != nil) {
-            return foundView;
-        }
-    }
-    return nil;
-}
-
 -(NSArray<UIView *> *)cobrowseUnredactedViewsForViewController:(UIViewController *)vc {
-  UIView *bottonNav = [self findViewWithAccessibilityIdentifier:@"BOTTOM_TABS_BAR" inView:UIApplication.sharedApplication.delegate.window];
-  
-  // return a list of views to be unredacted
-  return @[bottonNav];
+  // Get the root view controller
+  UIViewController *rootViewController = UIApplication.sharedApplication.delegate.window.rootViewController;
+
+  // Check if the root view controller is actually an RNNBottomTabsController
+  if ([rootViewController isKindOfClass:[RNNBottomTabsController class]]) {
+      RNNBottomTabsController *bottomTabsController = (RNNBottomTabsController *)rootViewController;
+      return @[bottomTabsController.tabBar];
+    
+  } else {
+    return @[];
+  }
 }
 
 @end

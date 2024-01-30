@@ -2,7 +2,6 @@ package com.example;
 
 import android.app.Activity;
 import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -83,33 +82,16 @@ public class MainApplication extends NavigationApplication implements ReactAppli
     return redacted;
   }
 
-  public static View findViewByTag(View parentView, String tag) {
-    if (parentView == null) {
-      return null;
-    }
-
-    if (tag.equals(parentView.getTag())) {
-      return parentView;
-    }
-
-    if (parentView instanceof ViewGroup) {
-      ViewGroup viewGroup = (ViewGroup) parentView;
-      for (int i = 0; i < viewGroup.getChildCount(); i++) {
-        View foundView = findViewByTag(viewGroup.getChildAt(i), tag);
-        if (foundView != null) {
-          return foundView;
-        }
-      }
-    }
-
-    return null;
-  }
-
   @Nullable
   @Override
   public List<View> unredactedViews(@NonNull Activity activity) {
-    return new ArrayList<View>() {{
-      add(findViewByTag(activity.getWindow().getDecorView(), "BOTTOM_TABS_BAR"));
-    }};
+    List<View> unredacted = new ArrayList<>() {};
+    View bottomTabsView = activity.getWindow().getDecorView().findViewById(R.id.bottomTabs);
+
+    if (bottomTabsView != null) {
+      unredacted.add(bottomTabsView);
+    }
+
+    return unredacted;
   }
 }

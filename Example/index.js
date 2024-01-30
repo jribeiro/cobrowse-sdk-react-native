@@ -58,12 +58,7 @@ Navigation.events().registerAppLaunchedListener(() => {
               }
             }
           }
-        ],
-        options: {
-          bottomTabs: {
-            testID: 'BOTTOM_TABS_BAR'
-          }
-        }
+        ]
       }
     }
   })
