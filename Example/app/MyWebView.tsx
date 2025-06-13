@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { WebView } from 'react-native-webview'
-import { unredact } from 'cobrowse-sdk-react-native'
+import { unredact, Unredacted } from 'cobrowse-sdk-react-native'
+import { Button, Text, View } from 'react-native';
 
 const html = `
   <!DOCTYPE html>
@@ -27,13 +28,39 @@ const html = `
 `
 
 class MyWebView extends Component {
-  render (): JSX.Element {
+  constructor(props) {
+    super(props);
+    // Initialize state with the HTML source
+    this.state = {
+      src: { html },
+      size: { height: 300, width: 300 }
+    };
+  }
+
+  // Handler to change the WebView source
+  changeSrc = () => {
+    this.setState({
+      src: { uri: 'https://docs.cobrowse.io' },
+      size: { height: 350, width: 300 }
+    });
+  };
+
+  render() {
+    const { src, size } = this.state;
     return (
-      <WebView
-        source={{ html }}
-        style={{ height: 300, width: 300 }}
-      />
-    )
+      <>
+        <Text
+          onPress={this.changeSrc}
+        >Change Src</Text>
+        <Unredacted>
+
+          <WebView
+            source={src}
+            style={size}
+          />
+        </Unredacted>
+      </>
+    );
   }
 }
 

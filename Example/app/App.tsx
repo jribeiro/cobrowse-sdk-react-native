@@ -22,9 +22,11 @@ import { SessionIndicator } from './SessionIndicator'
 
 CobrowseIO.showSessionControls = false
 
-CobrowseIO.license = 'trial'
+CobrowseIO.license = '7DN0kj64D3tOwg'
+CobrowseIO.api = 'https://cb-fe.gist.se/'
 CobrowseIO.capabilities = ['drawing', 'full_device', 'keypress', 'laser', 'pointer']
-CobrowseIO.webviewRedactedViews = ['.redact-me', 'input[type=text]']
+CobrowseIO.webviewRedactedViews = ['body']
+// CobrowseIO.webviewRedactedViews = ['.redact-me', 'input[type=text]']
 CobrowseIO.start()
 
 const UnredactedText = unredact(Text)
@@ -41,12 +43,12 @@ interface AppState {
 }
 
 export default class App extends Component<{}, AppState> {
-  constructor (props: {}) {
+  constructor(props: {}) {
     super(props)
     this.state = { show: 1 }
   }
 
-  render (): JSX.Element {
+  render(): JSX.Element {
     return (
       <>
         <SessionIndicator />
@@ -75,7 +77,7 @@ export default class App extends Component<{}, AppState> {
                           <View>
                             <Text>This is a sibling!</Text>
                           </View>
-                          )
+                        )
                         : null}
                     </Redacted>
                     <Text style={styles.welcome}>
@@ -138,7 +140,7 @@ export default class App extends Component<{}, AppState> {
                     <TextInput
                       style={{ width: 100 }}
                       defaultValue='Hello!'
-                      onChange={() => {}}
+                      onChange={() => { }}
                     />
                     <Text style={styles.instructions}>{instructions}</Text>
                     <SessionControl>
@@ -180,9 +182,9 @@ export default class App extends Component<{}, AppState> {
                       </Unredacted>
                       <Text>Redacted 1</Text>
                     </Redacted>
-                    <CobrowseView onEnded={() => {}} />
+                    <CobrowseView onEnded={() => { }} />
                   </View>
-                  )
+                )
                 : null}
             </View>
           </ScrollView>

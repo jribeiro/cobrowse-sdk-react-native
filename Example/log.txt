@@ -1,0 +1,429 @@
+
+> Example@0.0.1 ios
+> react-native run-ios
+
+info Found Xcode workspace "Example.xcworkspace"
+info Found booted JR iPhone, iPhone 16 Pro, iPhone 16
+info Building (using "xcodebuild -workspace Example.xcworkspace -configuration Debug -scheme Example -destination id=00008130-001871092083401C")
+
+info 💡 Tip: Make sure that you have set up your development environment correctly, by running react-native doctor. To read more about doctor command visit: https://github.com/react-native-community/cli/blob/main/packages/cli-doctor/README.md#doctor 
+
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -workspace Example.xcworkspace -configuration Debug -scheme Example -destination id=00008130-001871092083401C
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (62 targets)
+    Target 'Example' in project 'Example'
+        ➜ Explicit dependency on target 'Full-Device-Screen-Sharing' in project 'Example'
+        ➜ Implicit dependency on target 'Pods-Example' in project 'Pods' via file 'libPods-Example.a' in build phase 'Link Binary'
+        ➜ Implicit dependency on target 'CocoaAsyncSocket' in project 'Pods' via options '-lCocoaAsyncSocket' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'DoubleConversion' in project 'Pods' via options '-lDoubleConversion' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'Flipper' in project 'Pods' via options '-lFlipper' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'Flipper-Boost-iOSX' in project 'Pods' via options '-lFlipper-Boost-iOSX' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'Flipper-Fmt' in project 'Pods' via options '-lFlipper-Fmt' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'Flipper-Folly' in project 'Pods' via options '-lFlipper-Folly' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'Flipper-PeerTalk' in project 'Pods' via options '-lFlipper-PeerTalk' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'FlipperKit' in project 'Pods' via options '-lFlipperKit' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'RCT-Folly' in project 'Pods' via options '-lRCT-Folly' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'RCTTypeSafety' in project 'Pods' via options '-lRCTTypeSafety' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-Codegen' in project 'Pods' via options '-lReact-Codegen' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-Core' in project 'Pods' via options '-lReact-Core' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-CoreModules' in project 'Pods' via options '-lReact-CoreModules' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-NativeModulesApple' in project 'Pods' via options '-lReact-NativeModulesApple' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-RCTAnimation' in project 'Pods' via options '-lReact-RCTAnimation' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-RCTAppDelegate' in project 'Pods' via options '-lReact-RCTAppDelegate' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-RCTBlob' in project 'Pods' via options '-lReact-RCTBlob' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-RCTImage' in project 'Pods' via options '-lReact-RCTImage' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-RCTLinking' in project 'Pods' via options '-lReact-RCTLinking' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-RCTNetwork' in project 'Pods' via options '-lReact-RCTNetwork' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-RCTSettings' in project 'Pods' via options '-lReact-RCTSettings' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-RCTText' in project 'Pods' via options '-lReact-RCTText' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-RCTVibration' in project 'Pods' via options '-lReact-RCTVibration' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-cxxreact' in project 'Pods' via options '-lReact-cxxreact' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-debug' in project 'Pods' via options '-lReact-debug' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-hermes' in project 'Pods' via options '-lReact-hermes' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-jsi' in project 'Pods' via options '-lReact-jsi' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-jsiexecutor' in project 'Pods' via options '-lReact-jsiexecutor' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-jsinspector' in project 'Pods' via options '-lReact-jsinspector' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-logger' in project 'Pods' via options '-lReact-logger' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-perflogger' in project 'Pods' via options '-lReact-perflogger' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-runtimescheduler' in project 'Pods' via options '-lReact-runtimescheduler' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'React-utils' in project 'Pods' via options '-lReact-utils' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'ReactCommon' in project 'Pods' via options '-lReactCommon' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'SocketRocket' in project 'Pods' via options '-lSocketRocket' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'Yoga' in project 'Pods' via options '-lYoga' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'YogaKit' in project 'Pods' via options '-lYogaKit' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'cobrowse-sdk-react-native' in project 'Pods' via options '-lcobrowse-sdk-react-native' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'fmt' in project 'Pods' via options '-lfmt' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'glog' in project 'Pods' via options '-lglog' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'libevent' in project 'Pods' via options '-llibevent' in build setting 'OTHER_LDFLAGS'
+        ➜ Implicit dependency on target 'react-native-webview' in project 'Pods' via options '-lreact-native-webview' in build setting 'OTHER_LDFLAGS'
+    Target 'Pods-Example' in project 'Pods'
+        ➜ Explicit dependency on target 'CobrowseIO-XCFramework' in project 'Pods'
+        ➜ Explicit dependency on target 'CocoaAsyncSocket' in project 'Pods'
+        ➜ Explicit dependency on target 'DoubleConversion' in project 'Pods'
+        ➜ Explicit dependency on target 'FBLazyVector' in project 'Pods'
+        ➜ Explicit dependency on target 'FBReactNativeSpec' in project 'Pods'
+        ➜ Explicit dependency on target 'Flipper' in project 'Pods'
+        ➜ Explicit dependency on target 'Flipper-Boost-iOSX' in project 'Pods'
+        ➜ Explicit dependency on target 'Flipper-DoubleConversion' in project 'Pods'
+        ➜ Explicit dependency on target 'Flipper-Fmt' in project 'Pods'
+        ➜ Explicit dependency on target 'Flipper-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'Flipper-Glog' in project 'Pods'
+        ➜ Explicit dependency on target 'Flipper-PeerTalk' in project 'Pods'
+        ➜ Explicit dependency on target 'FlipperKit' in project 'Pods'
+        ➜ Explicit dependency on target 'OpenSSL-Universal' in project 'Pods'
+        ➜ Explicit dependency on target 'RCT-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'RCTRequired' in project 'Pods'
+        ➜ Explicit dependency on target 'RCTTypeSafety' in project 'Pods'
+        ➜ Explicit dependency on target 'React' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Codegen' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Core' in project 'Pods'
+        ➜ Explicit dependency on target 'React-CoreModules' in project 'Pods'
+        ➜ Explicit dependency on target 'React-NativeModulesApple' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTActionSheet' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTAnimation' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTAppDelegate' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTBlob' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTImage' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTLinking' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTNetwork' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTSettings' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTText' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTVibration' in project 'Pods'
+        ➜ Explicit dependency on target 'React-callinvoker' in project 'Pods'
+        ➜ Explicit dependency on target 'React-cxxreact' in project 'Pods'
+        ➜ Explicit dependency on target 'React-debug' in project 'Pods'
+        ➜ Explicit dependency on target 'React-hermes' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsi' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsiexecutor' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsinspector' in project 'Pods'
+        ➜ Explicit dependency on target 'React-logger' in project 'Pods'
+        ➜ Explicit dependency on target 'React-perflogger' in project 'Pods'
+        ➜ Explicit dependency on target 'React-rncore' in project 'Pods'
+        ➜ Explicit dependency on target 'React-runtimeexecutor' in project 'Pods'
+        ➜ Explicit dependency on target 'React-runtimescheduler' in project 'Pods'
+        ➜ Explicit dependency on target 'React-utils' in project 'Pods'
+        ➜ Explicit dependency on target 'ReactCommon' in project 'Pods'
+        ➜ Explicit dependency on target 'SocketRocket' in project 'Pods'
+        ➜ Explicit dependency on target 'Yoga' in project 'Pods'
+        ➜ Explicit dependency on target 'YogaKit' in project 'Pods'
+        ➜ Explicit dependency on target 'boost' in project 'Pods'
+        ➜ Explicit dependency on target 'cobrowse-sdk-react-native' in project 'Pods'
+        ➜ Explicit dependency on target 'fmt' in project 'Pods'
+        ➜ Explicit dependency on target 'glog' in project 'Pods'
+        ➜ Explicit dependency on target 'hermes-engine' in project 'Pods'
+        ➜ Explicit dependency on target 'libevent' in project 'Pods'
+        ➜ Explicit dependency on target 'react-native-webview' in project 'Pods'
+    Target 'react-native-webview' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Core' in project 'Pods'
+    Target 'cobrowse-sdk-react-native' in project 'Pods'
+        ➜ Explicit dependency on target 'CobrowseIO-XCFramework' in project 'Pods'
+        ➜ Explicit dependency on target 'React' in project 'Pods'
+    Target 'React-RCTAppDelegate' in project 'Pods'
+        ➜ Explicit dependency on target 'RCT-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'RCTRequired' in project 'Pods'
+        ➜ Explicit dependency on target 'RCTTypeSafety' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Core' in project 'Pods'
+        ➜ Explicit dependency on target 'React-CoreModules' in project 'Pods'
+        ➜ Explicit dependency on target 'React-NativeModulesApple' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTImage' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTNetwork' in project 'Pods'
+        ➜ Explicit dependency on target 'React-hermes' in project 'Pods'
+        ➜ Explicit dependency on target 'React-runtimescheduler' in project 'Pods'
+        ➜ Explicit dependency on target 'ReactCommon' in project 'Pods'
+    Target 'React-runtimescheduler' in project 'Pods'
+        ➜ Explicit dependency on target 'RCT-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'React-callinvoker' in project 'Pods'
+        ➜ Explicit dependency on target 'React-debug' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsi' in project 'Pods'
+        ➜ Explicit dependency on target 'React-runtimeexecutor' in project 'Pods'
+        ➜ Explicit dependency on target 'glog' in project 'Pods'
+        ➜ Explicit dependency on target 'hermes-engine' in project 'Pods'
+    Target 'React-CoreModules' in project 'Pods'
+        ➜ Explicit dependency on target 'RCT-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'RCTTypeSafety' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Codegen' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Core' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTBlob' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTImage' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsi' in project 'Pods'
+        ➜ Explicit dependency on target 'ReactCommon' in project 'Pods'
+        ➜ Explicit dependency on target 'SocketRocket' in project 'Pods'
+    Target 'React' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Core' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTActionSheet' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTAnimation' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTBlob' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTImage' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTLinking' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTNetwork' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTSettings' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTText' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTVibration' in project 'Pods'
+    Target 'React-RCTVibration' in project 'Pods'
+        ➜ Explicit dependency on target 'RCT-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Codegen' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Core' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsi' in project 'Pods'
+        ➜ Explicit dependency on target 'ReactCommon' in project 'Pods'
+    Target 'React-RCTText' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Core' in project 'Pods'
+    Target 'React-RCTSettings' in project 'Pods'
+        ➜ Explicit dependency on target 'RCT-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'RCTTypeSafety' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Codegen' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Core' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsi' in project 'Pods'
+        ➜ Explicit dependency on target 'ReactCommon' in project 'Pods'
+    Target 'React-RCTLinking' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Codegen' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Core' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsi' in project 'Pods'
+        ➜ Explicit dependency on target 'ReactCommon' in project 'Pods'
+    Target 'React-RCTImage' in project 'Pods'
+        ➜ Explicit dependency on target 'RCT-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'RCTTypeSafety' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Codegen' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Core' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTNetwork' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsi' in project 'Pods'
+        ➜ Explicit dependency on target 'ReactCommon' in project 'Pods'
+    Target 'React-RCTBlob' in project 'Pods'
+        ➜ Explicit dependency on target 'RCT-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Codegen' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Core' in project 'Pods'
+        ➜ Explicit dependency on target 'React-RCTNetwork' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsi' in project 'Pods'
+        ➜ Explicit dependency on target 'ReactCommon' in project 'Pods'
+        ➜ Explicit dependency on target 'hermes-engine' in project 'Pods'
+    Target 'React-RCTNetwork' in project 'Pods'
+        ➜ Explicit dependency on target 'RCT-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'RCTTypeSafety' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Codegen' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Core' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsi' in project 'Pods'
+        ➜ Explicit dependency on target 'ReactCommon' in project 'Pods'
+    Target 'React-RCTAnimation' in project 'Pods'
+        ➜ Explicit dependency on target 'RCT-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'RCTTypeSafety' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Codegen' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Core' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsi' in project 'Pods'
+        ➜ Explicit dependency on target 'ReactCommon' in project 'Pods'
+    Target 'React-Codegen' in project 'Pods'
+        ➜ Explicit dependency on target 'DoubleConversion' in project 'Pods'
+        ➜ Explicit dependency on target 'FBReactNativeSpec' in project 'Pods'
+        ➜ Explicit dependency on target 'RCT-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'RCTRequired' in project 'Pods'
+        ➜ Explicit dependency on target 'RCTTypeSafety' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Core' in project 'Pods'
+        ➜ Explicit dependency on target 'React-NativeModulesApple' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsi' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsiexecutor' in project 'Pods'
+        ➜ Explicit dependency on target 'React-rncore' in project 'Pods'
+        ➜ Explicit dependency on target 'ReactCommon' in project 'Pods'
+        ➜ Explicit dependency on target 'glog' in project 'Pods'
+        ➜ Explicit dependency on target 'hermes-engine' in project 'Pods'
+    Target 'React-rncore' in project 'Pods' (no dependencies)
+    Target 'React-NativeModulesApple' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Core' in project 'Pods'
+        ➜ Explicit dependency on target 'React-callinvoker' in project 'Pods'
+        ➜ Explicit dependency on target 'React-cxxreact' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsi' in project 'Pods'
+        ➜ Explicit dependency on target 'React-runtimeexecutor' in project 'Pods'
+        ➜ Explicit dependency on target 'ReactCommon' in project 'Pods'
+        ➜ Explicit dependency on target 'hermes-engine' in project 'Pods'
+    Target 'React-RCTActionSheet' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Core' in project 'Pods'
+    Target 'FlipperKit' in project 'Pods'
+        ➜ Explicit dependency on target 'CocoaAsyncSocket' in project 'Pods'
+        ➜ Explicit dependency on target 'Flipper' in project 'Pods'
+        ➜ Explicit dependency on target 'Flipper-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'Flipper-PeerTalk' in project 'Pods'
+        ➜ Explicit dependency on target 'SocketRocket' in project 'Pods'
+        ➜ Explicit dependency on target 'YogaKit' in project 'Pods'
+    Target 'YogaKit' in project 'Pods'
+        ➜ Explicit dependency on target 'Yoga' in project 'Pods'
+    Target 'Flipper-PeerTalk' in project 'Pods' (no dependencies)
+    Target 'Flipper' in project 'Pods'
+        ➜ Explicit dependency on target 'Flipper-Folly' in project 'Pods'
+    Target 'Flipper-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'Flipper-Boost-iOSX' in project 'Pods'
+        ➜ Explicit dependency on target 'Flipper-DoubleConversion' in project 'Pods'
+        ➜ Explicit dependency on target 'Flipper-Fmt' in project 'Pods'
+        ➜ Explicit dependency on target 'Flipper-Glog' in project 'Pods'
+        ➜ Explicit dependency on target 'OpenSSL-Universal' in project 'Pods'
+        ➜ Explicit dependency on target 'libevent' in project 'Pods'
+    Target 'OpenSSL-Universal' in project 'Pods' (no dependencies)
+    Target 'Flipper-Glog' in project 'Pods' (no dependencies)
+    Target 'Flipper-Fmt' in project 'Pods' (no dependencies)
+    Target 'Flipper-DoubleConversion' in project 'Pods' (no dependencies)
+    Target 'Flipper-Boost-iOSX' in project 'Pods' (no dependencies)
+    Target 'FBReactNativeSpec' in project 'Pods'
+        ➜ Explicit dependency on target 'RCT-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'RCTRequired' in project 'Pods'
+        ➜ Explicit dependency on target 'RCTTypeSafety' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Core' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsi' in project 'Pods'
+        ➜ Explicit dependency on target 'ReactCommon' in project 'Pods'
+    Target 'ReactCommon' in project 'Pods'
+        ➜ Explicit dependency on target 'DoubleConversion' in project 'Pods'
+        ➜ Explicit dependency on target 'RCT-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'React-callinvoker' in project 'Pods'
+        ➜ Explicit dependency on target 'React-cxxreact' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsi' in project 'Pods'
+        ➜ Explicit dependency on target 'React-logger' in project 'Pods'
+        ➜ Explicit dependency on target 'React-perflogger' in project 'Pods'
+        ➜ Explicit dependency on target 'glog' in project 'Pods'
+        ➜ Explicit dependency on target 'hermes-engine' in project 'Pods'
+    Target 'RCTTypeSafety' in project 'Pods'
+        ➜ Explicit dependency on target 'FBLazyVector' in project 'Pods'
+        ➜ Explicit dependency on target 'RCTRequired' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Core' in project 'Pods'
+    Target 'React-Core' in project 'Pods'
+        ➜ Explicit dependency on target 'RCT-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'React-Core-AccessibilityResources' in project 'Pods'
+        ➜ Explicit dependency on target 'React-cxxreact' in project 'Pods'
+        ➜ Explicit dependency on target 'React-hermes' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsi' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsiexecutor' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsinspector' in project 'Pods'
+        ➜ Explicit dependency on target 'React-perflogger' in project 'Pods'
+        ➜ Explicit dependency on target 'React-runtimeexecutor' in project 'Pods'
+        ➜ Explicit dependency on target 'React-utils' in project 'Pods'
+        ➜ Explicit dependency on target 'SocketRocket' in project 'Pods'
+        ➜ Explicit dependency on target 'Yoga' in project 'Pods'
+        ➜ Explicit dependency on target 'glog' in project 'Pods'
+        ➜ Explicit dependency on target 'hermes-engine' in project 'Pods'
+    Target 'Yoga' in project 'Pods' (no dependencies)
+    Target 'SocketRocket' in project 'Pods' (no dependencies)
+    Target 'React-utils' in project 'Pods'
+        ➜ Explicit dependency on target 'RCT-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'React-debug' in project 'Pods'
+        ➜ Explicit dependency on target 'glog' in project 'Pods'
+    Target 'React-hermes' in project 'Pods'
+        ➜ Explicit dependency on target 'DoubleConversion' in project 'Pods'
+        ➜ Explicit dependency on target 'RCT-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'React-cxxreact' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsi' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsiexecutor' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsinspector' in project 'Pods'
+        ➜ Explicit dependency on target 'React-perflogger' in project 'Pods'
+        ➜ Explicit dependency on target 'glog' in project 'Pods'
+        ➜ Explicit dependency on target 'hermes-engine' in project 'Pods'
+    Target 'React-jsiexecutor' in project 'Pods'
+        ➜ Explicit dependency on target 'DoubleConversion' in project 'Pods'
+        ➜ Explicit dependency on target 'RCT-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'React-cxxreact' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsi' in project 'Pods'
+        ➜ Explicit dependency on target 'React-perflogger' in project 'Pods'
+        ➜ Explicit dependency on target 'glog' in project 'Pods'
+        ➜ Explicit dependency on target 'hermes-engine' in project 'Pods'
+    Target 'React-cxxreact' in project 'Pods'
+        ➜ Explicit dependency on target 'DoubleConversion' in project 'Pods'
+        ➜ Explicit dependency on target 'RCT-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'React-callinvoker' in project 'Pods'
+        ➜ Explicit dependency on target 'React-debug' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsi' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsinspector' in project 'Pods'
+        ➜ Explicit dependency on target 'React-logger' in project 'Pods'
+        ➜ Explicit dependency on target 'React-perflogger' in project 'Pods'
+        ➜ Explicit dependency on target 'React-runtimeexecutor' in project 'Pods'
+        ➜ Explicit dependency on target 'boost' in project 'Pods'
+        ➜ Explicit dependency on target 'glog' in project 'Pods'
+        ➜ Explicit dependency on target 'hermes-engine' in project 'Pods'
+    Target 'React-runtimeexecutor' in project 'Pods'
+        ➜ Explicit dependency on target 'React-jsi' in project 'Pods'
+    Target 'React-perflogger' in project 'Pods' (no dependencies)
+    Target 'React-logger' in project 'Pods'
+        ➜ Explicit dependency on target 'glog' in project 'Pods'
+    Target 'React-jsinspector' in project 'Pods' (no dependencies)
+    Target 'React-jsi' in project 'Pods'
+        ➜ Explicit dependency on target 'DoubleConversion' in project 'Pods'
+        ➜ Explicit dependency on target 'RCT-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'boost' in project 'Pods'
+        ➜ Explicit dependency on target 'glog' in project 'Pods'
+        ➜ Explicit dependency on target 'hermes-engine' in project 'Pods'
+    Target 'hermes-engine' in project 'Pods' (no dependencies)
+    Target 'React-debug' in project 'Pods' (no dependencies)
+    Target 'React-callinvoker' in project 'Pods' (no dependencies)
+    Target 'React-Core-AccessibilityResources' in project 'Pods' (no dependencies)
+    Target 'RCTRequired' in project 'Pods' (no dependencies)
+    Target 'RCT-Folly' in project 'Pods'
+        ➜ Explicit dependency on target 'DoubleConversion' in project 'Pods'
+        ➜ Explicit dependency on target 'boost' in project 'Pods'
+        ➜ Explicit dependency on target 'fmt' in project 'Pods'
+        ➜ Explicit dependency on target 'glog' in project 'Pods'
+        ➜ Explicit dependency on target 'libevent' in project 'Pods'
+    Target 'libevent' in project 'Pods' (no dependencies)
+    Target 'glog' in project 'Pods' (no dependencies)
+    Target 'fmt' in project 'Pods' (no dependencies)
+    Target 'boost' in project 'Pods' (no dependencies)
+    Target 'FBLazyVector' in project 'Pods' (no dependencies)
+    Target 'DoubleConversion' in project 'Pods' (no dependencies)
+    Target 'CocoaAsyncSocket' in project 'Pods' (no dependencies)
+    Target 'CobrowseIO-XCFramework' in project 'Pods' (no dependencies)
+    Target 'Full-Device-Screen-Sharing' in project 'Example'
+        ➜ Implicit dependency on target 'Pods-Full-Device-Screen-Sharing' in project 'Pods' via file 'libPods-Full-Device-Screen-Sharing.a' in build phase 'Link Binary'
+    Target 'Pods-Full-Device-Screen-Sharing' in project 'Pods'
+        ➜ Explicit dependency on target 'CobrowseIO-Extension' in project 'Pods'
+    Target 'CobrowseIO-Extension' in project 'Pods' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.5.sdk -x objective-c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.5.sdk -x c++ -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.5.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.5.sdk -x objective-c++ -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.5.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.5.sdk -x assembler-with-cpp -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -V
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /Users/jribeiro/code/cobrowse-sdk-react-native/Example/ios/Example/Images.xcassets
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+Build description signature: afc6fa787e0ef3f828e816d9d785f2f8
+Build description path: /Users/jribeiro/Library/Developer/Xcode/DerivedData/Example-csvhbcplhywmkggpjimvmlbgupgv/Build/Intermediates.noindex/XCBuildData/afc6fa787e0ef3f828e816d9d785f2f8.xcbuilddata
+/Users/jribeiro/code/cobrowse-sdk-react-native/Example/ios/Pods/Pods.xcodeproj: warning: The iOS deployment target 'IPHONEOS_DEPLOYMENT_TARGET' is set to 11.0, but the range of supported deployment target versions is 12.0 to 18.5.99. (in target 'react-native-webview' from project 'Pods')
+/Users/jribeiro/code/cobrowse-sdk-react-native/Example/ios/Example.xcodeproj: error: Provisioning profile "iOS Team Provisioning Profile: org.reactjs.native.example.Example653653653653.Full-Device-Screen-Sharing" doesn't include the currently selected device "JR iPhone" (identifier 00008130-001871092083401C). (in target 'Full-Device-Screen-Sharing' from project 'Example')
+/Users/jribeiro/code/cobrowse-sdk-react-native/Example/ios/Example.xcodeproj: warning: The iOS deployment target 'IPHONEOS_DEPLOYMENT_TARGET' is set to 10.0, but the range of supported deployment target versions is 12.0 to 18.5.99. (in target 'Example' from project 'Example')
+/Users/jribeiro/code/cobrowse-sdk-react-native/Example/ios/Example.xcodeproj: error: Provisioning profile "iOS Team Provisioning Profile: org.reactjs.native.example.Example653653653653" doesn't include the currently selected device "JR iPhone" (identifier 00008130-001871092083401C). (in target 'Example' from project 'Example')
+warning: Run script build phase 'Start Packager' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'Example' from project 'Example')
+warning: Run script build phase 'Bundle React Native code and images' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'Example' from project 'Example')
+note: Run script build phase 'Copy Cobrowse.io broadcast extension framework' will be run during every build because the option to run the script phase "Based on dependency analysis" is unchecked. (in target 'Example' from project 'Example')
+/Users/jribeiro/code/cobrowse-sdk-react-native/Example/ios/Pods/Pods.xcodeproj: warning: The iOS deployment target 'IPHONEOS_DEPLOYMENT_TARGET' is set to 11.0, but the range of supported deployment target versions is 12.0 to 18.5.99. (in target 'cobrowse-sdk-react-native' from project 'Pods')
+
+** BUILD FAILED **
+
+
+The following build commands failed:
+	Building workspace Example with scheme Example and configuration Debug
+(1 failure)
+
