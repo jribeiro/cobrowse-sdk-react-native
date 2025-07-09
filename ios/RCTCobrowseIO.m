@@ -1,7 +1,6 @@
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventEmitter.h>
 #import "CBIOSession+Bridging.h"
-#import "CBIOCobrowseRedacted.h"
 #import <React/RCTUtils.h>
 #import <React/RCTView.h>
 #import <React/RCTBridge.h>
@@ -19,8 +18,94 @@
 
 static id<RCTCobrowseIODelegate> _Nullable _delegate;
 
+//static void PrintFullViewHierarchyRec(UIView *view, NSString *indent) {
+//    // 1) Print the UIView itself, now with tag & accessibilityLabel
+//    NSLog(@"%@↳ UIView: %@ frame=%@ opaque=%@ tag=%ld accessibilityLabel=%@",
+//          indent,
+//          NSStringFromClass([view class]),
+//          NSStringFromCGRect(view.frame),
+//          view.isOpaque ? @"YES" : @"NO",
+//          (long)view.tag,
+//          view.accessibilityLabel ?: @"<nil>");
+//    
+//    // 2) Print all of its CALayer sublayers
+//    [view.layer.sublayers enumerateObjectsUsingBlock:^(CALayer *layer, NSUInteger idx, BOOL *stop) {
+//        NSLog(@"%@   └─ CALayer[%lu]: %@ name=%@ z=%.0f",
+//              indent,
+//              (unsigned long)idx,
+//              layer,
+//              layer.name ?: @"<nil>",
+//              layer.zPosition);
+//    }];
+//    
+//    // 3) Recurse into each subview
+//    NSString *childIndent = [indent stringByAppendingString:@"    "];
+//    for (UIView *subview in view.subviews) {
+//        PrintFullViewHierarchyRec(subview, childIndent);
+//    }
+//}
+
+static void _PrintLayerDetails(CALayer *layer, NSString *indent) {
+    // Colorify the backgroundColor if present
+    NSString *bg = layer.backgroundColor
+                 ? CFBridgingRelease(CFCopyDescription(layer.backgroundColor))
+                 : @"<none>";
+    id contents = layer.contents ?: @"<none>";
+    
+    NSLog(@"%@CALayer %p  name=%@  z=%.0f  frame=%@  bounds=%@",
+          indent,
+          layer,
+          layer.name ?: @"<nil>",
+          layer.zPosition,
+          NSStringFromCGRect(layer.frame),
+          NSStringFromCGRect(layer.bounds));
+    NSLog(@"%@   bgColor=%@  contents=%@  masksToBounds=%@",
+          indent,
+          bg,
+          contents,
+          layer.masksToBounds ? @"YES":@"NO");
+    NSLog(@"%@   cornerRadius=%.1f  borderWidth=%.1f  shadowOpacity=%.2f",
+          indent,
+          layer.cornerRadius,
+          layer.borderWidth,
+          layer.shadowOpacity);
+    NSLog(@"%@   opacity=%.2f  doubleSided=%@  shouldRasterize=%@",
+          indent,
+          layer.opacity,
+          layer.doubleSided ? @"YES":@"NO",
+          layer.shouldRasterize ? @"YES":@"NO");
+    
+    // recurse into sublayers
+    // NSString *childIndent = [indent stringByAppendingString:@"    "];
+    // for (CALayer *sub in layer.sublayers) {
+    //     _PrintLayerDetails(sub, childIndent);
+    // }
+}
+
+static void PrintFullViewHierarchyRec(UIView *view, NSString *indent) {
+    // 1) Print the UIView
+    NSLog(@"%@↳ UIView: %@  frame=%@  tag=%ld  accLabel=%@",
+          indent,
+          NSStringFromClass(view.class),
+          NSStringFromCGRect(view.frame),
+          (long)view.tag,
+          view.accessibilityLabel ?: @"<nil>");
+    
+    // 2) Print each sublayer in detail
+    for (CALayer *lay in view.layer.sublayers) {
+        _PrintLayerDetails(lay, [indent stringByAppendingString:@"    "]);
+    }
+    
+    // 3) Recurse into subviews
+    NSString *childIndent = [indent stringByAppendingString:@"    "];
+    for (UIView *sv in view.subviews) {
+        PrintFullViewHierarchyRec(sv, childIndent);
+    }
+}
+
 @implementation RCTCobrowseIO {
     bool hasListeners;
+    NSMutableSet* redactedTags;
     NSMutableSet* unredactedTags;
 }
 
@@ -30,6 +115,7 @@ RCT_EXPORT_MODULE();
     self = [super init];
     if (self) {
         [CobrowseIO.instance setDelegate:self];
+        redactedTags = [NSMutableSet set];
         unredactedTags = [NSMutableSet set];
     }
     return self;
@@ -85,8 +171,18 @@ RCT_EXPORT_MODULE();
 }
 
 -(NSArray<UIView *> *)cobrowseRedactedViewsForViewController:(UIViewController *)vc {
-    NSMutableSet* views = [CBIOCobrowseRedactedManager.redactedViews mutableCopy];
+    NSMutableSet* views = [NSMutableSet set];
+    @synchronized(redactedTags) {
+        for (id tag in redactedTags) {
+            UIView* v = [self.bridge.uiManager viewForReactTag: tag];
+            if (v != nil) {
+                v.accessibilityLabel = @"Marked for redaction";
+                [views addObject:v];
+            }
+        }
+    }
     if ([RCTCobrowseIO.delegate respondsToSelector:@selector(cobrowseRedactedViewsForViewController:)]) {
+        vc.title = @"Redacted wrapper";
         [views addObjectsFromArray: [RCTCobrowseIO.delegate cobrowseRedactedViewsForViewController:vc]];
     }
     
@@ -143,6 +239,37 @@ RCT_EXPORT_METHOD(license: (NSString*) license) {
 
 RCT_EXPORT_METHOD(api: (NSString*) api) {
     CobrowseIO.instance.api = api;
+}
+
+// UIView* v = [self.bridge.uiManager viewForReactTag: tag];
+
+RCT_REMAP_METHOD(cbLog,
+                 cbLog: (NSArray*) reactTags
+                 resolver:(RCTPromiseResolveBlock)resolve
+                 rejecter:(RCTPromiseRejectBlock)reject) {
+    for (id tag in reactTags) {
+        UIView* v = [self.bridge.uiManager viewForReactTag: tag];
+        if (v != nil) {
+            PrintFullViewHierarchyRec(v.superview, @"");
+        }
+
+        
+    }
+    
+    
+    resolve(nil);
+}
+
+RCT_REMAP_METHOD(setRedactedTags,
+                 setRedactedTags: (NSArray*) reactTags
+                 resolver:(RCTPromiseResolveBlock)resolve
+                 rejecter:(RCTPromiseRejectBlock)reject) {
+    @synchronized(redactedTags) {
+        [redactedTags removeAllObjects];
+        [redactedTags addObjectsFromArray:reactTags];
+    }
+    [self forceRedactionUpdate];
+    resolve(nil);
 }
 
 RCT_REMAP_METHOD(setUnredactedTags,

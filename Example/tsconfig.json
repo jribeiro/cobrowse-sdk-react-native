@@ -1,3 +1,14 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json"
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "include": [
+    "app/**/*",
+    "index.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "ios",
+    "android",
+    "**/*.xcframework",
+    "**/*.framework"
+  ]
 }

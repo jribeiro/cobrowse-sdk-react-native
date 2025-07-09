@@ -40,6 +40,11 @@ public class CobrowseIOModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
+  public void setRedactedTags(final ReadableArray reactTags, final Promise promise) {
+    delegates.setRedactedTags(reactTags, promise);
+  }
+
+  @ReactMethod
   public void setUnredactedTags(final ReadableArray reactTags, final Promise promise) {
     delegates.setUnredactedTags(reactTags, promise);
   }

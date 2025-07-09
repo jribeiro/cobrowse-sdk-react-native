@@ -26,6 +26,7 @@ class CommonDelegates implements CobrowseIOCommonDelegates {
   private static final String SESSION_ENDED = "session.ended";
   private static final String SESSION_REQUESTED = "session.requested";
 
+  private final HashSet<Integer> redactedTags = new HashSet<>();
   private final HashSet<Integer> unredactedTags = new HashSet<>();
   private ReactApplicationContext reactApplicationContext;
 
@@ -41,13 +42,23 @@ class CommonDelegates implements CobrowseIOCommonDelegates {
 
   @Override
   public List<View> redactedViews(@NonNull Activity activity) {
-    HashSet<View> redacted = new HashSet<>(RedactedViewManager.redactedViews.keySet());
-    if (CobrowseIOModule.delegate instanceof io.cobrowse.reactnative.CobrowseIO.RedactionDelegate) {
-      List<View> views = ((io.cobrowse.reactnative.CobrowseIO.RedactionDelegate) CobrowseIOModule.delegate).redactedViews(activity);
-      if (views != null) redacted.addAll(views);
-    }
+    synchronized (redactedTags) {
+      HashSet<View> redacted = new HashSet<>();
+      for (Integer i : redactedTags) {
+        try {
+          UIManager uiManager = UIManagerHelper.getUIManagerForReactTag(reactApplicationContext, i);
+          if (uiManager != null) redacted.add(uiManager.resolveView(i));
+        } catch (Exception e) {
+          Log.i("CobrowseIO", "Failed to find redacted view for tag " + i + ", error = " + e.getMessage());
+        }
+      }
+      if (CobrowseIOModule.delegate instanceof io.cobrowse.reactnative.CobrowseIO.RedactionDelegate) {
+        List<View> views = ((io.cobrowse.reactnative.CobrowseIO.RedactionDelegate) CobrowseIOModule.delegate).redactedViews(activity);
+        if (views != null) redacted.addAll(views);
+      }
 
-    return new ArrayList<>(redacted);
+      return new ArrayList<>(redacted);
+    }
   }
 
   @Override
@@ -105,6 +116,15 @@ class CommonDelegates implements CobrowseIOCommonDelegates {
       .emit(SESSION_ENDED, Conversion.convert(session));
   }
 
+  public void setRedactedTags(final ReadableArray reactTags, final Promise promise) {
+    synchronized (redactedTags) {
+      redactedTags.clear();
+      for (int i = 0; i < reactTags.size(); i++)
+        redactedTags.add(reactTags.getInt(i));
+      promise.resolve(null);
+    }
+  }
+  
   public void setUnredactedTags(final ReadableArray reactTags, final Promise promise) {
     synchronized (unredactedTags) {
       unredactedTags.clear();

@@ -23,9 +23,6 @@ public class CobrowseIOPackage implements ReactPackage {
     @NonNull
     @Override
     public List<ViewManager> createViewManagers(@NonNull ReactApplicationContext reactContext) {
-        return Collections.<ViewManager>singletonList(
-                new RedactedViewManager()
-        );
+        return Collections.emptyList();
     }
-
 }
